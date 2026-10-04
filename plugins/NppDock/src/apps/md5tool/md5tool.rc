@@ -1,0 +1,50 @@
+// ============================================================================
+// md5tool.rc —— 版本信息资源
+// ----------------------------------------------------------------------------
+// 【为什么这个文件很重要】
+//   NppDock 容器扫描到 NppDockApp_*.exe 之后，要拿一个"给人看的标题"去建 tab。
+//   标题怎么传？**不用额外清单文件、不用命令行自述**，直接用标准做法：
+//   读 exe 的 VERSIONINFO 里的 FileDescription。
+//   好处：元数据跟着二进制走，复制/改名都不会脱节；同时也让资源管理器里
+//   鼠标悬停能显示像样的描述。
+//
+// 注意 1：用 `1 VERSIONINFO` 而不是 `VS_VERSION_INFO VERSIONINFO`，
+//         省掉 #include <winver.h>。两者等价（VS_VERSION_INFO 宏就是 1），
+//         但少一个头文件依赖，rc.exe 在 SDK 路径不全的环境里也能过。
+// 注意 2：`#pragma code_page(65001)` 让 rc.exe 按 UTF-8 读本文件，
+//         否则中文 FileDescription 会变乱码（文件本身存为 UTF-8 无 BOM）。
+// ============================================================================
+
+#pragma code_page(65001)
+
+1 VERSIONINFO
+ FILEVERSION    1,1,0,0
+ PRODUCTVERSION 1,1,0,0
+ FILEFLAGSMASK  0x3fL
+ FILEFLAGS      0x0L
+ FILEOS         0x40004L
+ FILETYPE       0x1L
+ FILESUBTYPE    0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        // 0804 = 简体中文，04b0 = Unicode(1200)
+        BLOCK "080404b0"
+        BEGIN
+            // FileDescription 就是 dock 里那个 tab 的标题。
+            // 从 1.1 起支持 MD5/SHA-1/SHA-256/SHA-384/SHA-512/CRC32，
+            // 所以标题不能再叫 "MD5 校验" 了 —— 那是自相矛盾。
+            VALUE "FileDescription",  "文件校验"
+            VALUE "FileVersion",      "1.1.0.0"
+            VALUE "InternalName",     "md5tool"
+            VALUE "OriginalFilename", "NppDockApp_MD5.exe"
+            VALUE "ProductName",      "NppDock"
+            VALUE "ProductVersion",   "1.1.0.0"
+            VALUE "LegalCopyright",   "自用工具"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END

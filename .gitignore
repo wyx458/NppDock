@@ -1,0 +1,35 @@
+# ---- 构建产物（全部可再生成：python build.py）----
+build/
+*.obj
+*.res
+*.lib
+*.exp
+*.ilk
+*.pdb
+*.idb
+*.exe
+
+# ---- 测试现场（探针自己造样本，不入库）----
+_t/
+__pycache__/
+*.pyc
+
+# ---- 运行时产生的日志/配置（每个人机器上都不一样）----
+*.log
+*.trace.log
+*.old
+*.bad
+nppbackpack_config.json
+
+# ---- 历史遗留备份 ----
+*.bak
+*.orig
+
+# ---- 编辑器 / 操作系统 ----
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+Thumbs.db
+.DS_Store

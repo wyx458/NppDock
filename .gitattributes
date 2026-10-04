@@ -1,0 +1,6 @@
+# 二进制资源 —— 别让 git 按文本处理（换行转换会把图标弄坏）
+*.ico  binary
+*.bmp  binary
+
+# 源码与脚本统一用 LF 存进仓库（Windows 上检出时由 core.autocrlf 决定工作区换行）
+* text=auto

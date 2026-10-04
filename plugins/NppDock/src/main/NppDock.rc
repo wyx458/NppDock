@@ -1,0 +1,59 @@
+// ============================================================================
+// NppDock.rc —— 主插件 DLL 的资源（图标 + 版本信息）
+// ----------------------------------------------------------------------------
+// 这里有两类资源，都跟"工具栏按钮"有关：
+//
+// 1) 工具栏图标（三份，缺一不可）：
+//      NppDock.ico        浅色工具栏用
+//      NppDock_dark.ico   深色工具栏用
+//      NppDock.bmp        老式图标集用的位图
+//    Notepad++ 的 NPPM_ADDTOOLBARICON_FORDARKMODE 明确要求**三个都给**：
+//    用户切换"标准/小/大"图标集或切到深色模式时，缺哪个就在哪个场合显示空白。
+//    图标由 tools/gen_dock_icon.py 生成（简约线条风、黑白灰），要改样式改那个脚本。
+//
+// 2) 版本信息：让资源管理器里悬停能看到描述，也方便排查"加载的是哪一版"。
+//
+// 注意：`#pragma code_page(65001)` 让 rc.exe 按 UTF-8 读本文件
+//       （文件存为 UTF-8 **无 BOM**），否则中文字段会变乱码。
+//       图片名用相对路径 —— build.py 编译资源时会把本文件所在目录加进 /I。
+// ============================================================================
+
+#pragma code_page(65001)
+
+// 资源 ID（NppDock.cpp 里用同名宏引用）
+#define IDI_NPPDOCK          101
+#define IDI_NPPDOCK_DARK     102
+#define IDB_NPPDOCK          103
+
+IDI_NPPDOCK          ICON   "NppDock.ico"
+IDI_NPPDOCK_DARK     ICON   "NppDock_dark.ico"
+IDB_NPPDOCK          BITMAP "NppDock.bmp"
+
+1 VERSIONINFO
+ FILEVERSION    1,3,0,0
+ PRODUCTVERSION 1,3,0,0
+ FILEFLAGSMASK  0x3fL
+ FILEFLAGS      0x0L
+ FILEOS         0x40004L
+ FILETYPE       0x2L
+ FILESUBTYPE    0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        // 0804 = 简体中文，04b0 = Unicode(1200)
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "FileDescription",  "NppDock 停靠面板"
+            VALUE "FileVersion",      "1.3.0.0"
+            VALUE "InternalName",     "NppDock"
+            VALUE "OriginalFilename", "NppDock.dll"
+            VALUE "ProductName",      "NppDock"
+            VALUE "ProductVersion",   "1.3.0.0"
+            VALUE "LegalCopyright",   "自用工具"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END

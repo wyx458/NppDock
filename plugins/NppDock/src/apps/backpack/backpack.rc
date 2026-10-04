@@ -1,0 +1,44 @@
+// ===========================================================================
+// backpack.rc —— 版本资源
+//
+// ★ FileDescription 就是 dock 标签页上显示的标题（R7）。
+//   所以这个字符串**不能乱改** —— 改了标签名字就变了。
+//   而"哪个 exe 对应哪一页"是记在 panel.ini 里的**文件名**（NppDockApp_PACK.exe），
+//   改名会让"重开 Notepad++ 自动接回上次的页"失效（见 README 第 6 节）。
+// ===========================================================================
+#include <windows.h>
+
+// ⚠️ 必须在任何含中文的行**之前**加这一句：rc.exe 默认按本地 ANSI 代码页
+//    读 .rc，而我们的文件是 UTF-8（无 BOM）—— 少了它，下面的
+//    FileDescription 会变成 "鏂囦欢鑳屽寘" 这种乱码，标签页上就显示乱码。
+//    （「网络测试」的 rc 里有这句，所以它没事；我写这个新 rc 时漏了，
+//      结果菜单里第三个应用的名字是乱码 —— 见 踩坑记录 21.x。）
+#pragma code_page(65001)
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION    1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK  VS_FFI_FILEFLAGSMASK
+ FILEFLAGS      0
+ FILEOS         VOS_NT_WINDOWS32
+ FILETYPE       VFT_APP
+ FILESUBTYPE    VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "CompanyName",      "self-developed"
+            VALUE "FileDescription",  "文件背包"
+            VALUE "FileVersion",      "1.0.0.0"
+            VALUE "InternalName",     "NppDockApp_PACK"
+            VALUE "OriginalFilename", "NppDockApp_PACK.exe"
+            VALUE "ProductName",      "NppDock 文件背包"
+            VALUE "ProductVersion",   "1.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
