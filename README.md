@@ -17,6 +17,18 @@
 
 ---
 
+## 长什么样
+
+整个 Notepad++ + 底部面板（面板里开着三个应用：文件校验 / 网络测试 / 文件背包）：
+
+<img src="docs/images/overview.png" width="820" alt="Notepad++ 底部停靠面板">
+
+> 想重截一张：`python tools/shoot_readme.py` 会另起一个**干净的** Notepad++ 实例
+> （只打开仓库里的源码、跑完把你的配置原样还原）覆盖 `docs/images/overview.png`，
+> 并顺手做像素级体检 —— 面板是不是空的、活动标签的绿杠在不在，不达标直接报 FAIL。
+
+---
+
 ## 30 秒跑起来
 
 前置：**Windows** + Visual Studio 2022 Build Tools（含"使用 C++ 的桌面开发"）+ Windows SDK + Python 3.8+。
@@ -62,7 +74,8 @@ pluginsWorkspace/                    ← 仓库根（这个目录本身就可以
 ├─ README.md                         ← 本文件
 ├─ docs/                             ← 跨插件的文档
 │  ├─ NppDock应用开发指南.md          ← ★ 写应用前先读
-│  └─ 铁律与踩坑要点.md               ← ★ 动手前先扫
+│  ├─ 铁律与踩坑要点.md               ← ★ 动手前先扫
+│  └─ images/                        ← README 那张截图
 ├─ sdk/                              ← Notepad++ 官方 SDK 头（原样拷贝，不改）
 └─ plugins/NppDock/                  ← 容器 + 三个应用（一个插件的全部东西都在这）
    ├─ build.py                       ← 构建 + 部署 + 静态自检
@@ -76,6 +89,7 @@ pluginsWorkspace/                    ← 仓库根（这个目录本身就可以
    ├─ tools/
    │  ├─ dock_app_probe.py           ← 真机探针（发真实鼠标事件驱动整条链路）
    │  ├─ unit/run.py                 ← 单元测试壳（跑法见下）
+   │  ├─ shoot_readme.py             ← 重新生成 README 那张截图
    │  └─ check_*.py / gen_*.py       ← 摘要自检、工具栏、图标生成
    ├─ scripts/run.py                 ← 跑产物并回显输出
    ├─ build/                         ← 编译产物（可整个删掉重建，**不入库**）
