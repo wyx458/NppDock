@@ -51,7 +51,7 @@ test_integration.exe           :: 离线集成测试：34 条断言，**不需�
 | 4 | [`plugins/NppDock/README.md`](plugins/NppDock/README.md) | 要知道容器/三个应用的**具体行为规格**、目录结构、测试怎么跑 |
 
 > 这三份文档是给"**完全没有上下文的人或 AI**"写的：只讲现状与规矩，不写"当年怎么改的"。
-> 想考古就去翻 git 历史（早期那些逐轮迭代的过程文档都在里面）。
+> 早期那些逐轮迭代的过程文档**已从仓库移除**（初始提交就是精简后的状态），不随仓库分发。
 
 ---
 
@@ -145,6 +145,8 @@ python tools\dock_app_probe.py tabv14                    :: 标签条：最低�
 ```
 
 ⚠️ 探针是**附着到正在运行的 Notepad++** 上驱动的 —— 先开好 Notepad++ 再跑。
+`_t/` 是探针的**临时样本目录**（不入库，克隆后不存在）：跑 `hashall` 前自己造一个样本，
+比如 `mkdir _t && fsutil file createnew _t\fox.bin 4096`（或随便拷个文件进去）即可。
 `dragsplitter` / `toggletest` 靠抓屏比对，需要 PIL。
 
 ---

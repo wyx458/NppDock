@@ -212,7 +212,7 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE, LPWSTR, int) {
 **6.3 回归护栏**：
 
 ```bat
-cd build\tests && test_integration.exe          :: 离线集成 32 条断言（不用开 N++）
+cd build\tests && test_integration.exe          :: 离线集成 34 条断言（不用开 N++）
 python tools\dock_app_probe.py toggletest       :: 隐藏 -> 唤出，界面还在吗
 python tools\dock_app_probe.py dragsplitter --dy 80 --steps 12   :: 真拖分隔条，全程不白
 python tools\dock_app_probe.py multiopen        :: 多页：页数/进程数各 +1，收尾回到起点

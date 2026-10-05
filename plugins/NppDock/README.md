@@ -247,7 +247,7 @@ cd build\tests
 test_integration.exe
 ```
 
-"假宿主" + 真实 `NppDock.dll`，共 **32 条断言 / 9 组**：① 6 导出函数齐全 ② `setInfo`+菜单表 ③ 注册面板（`uMask` 必须底部槽位）③b 应用发现 ④ 状态持久化（写出/读回/隐藏与显示两种）⑤ 显隐反复切换有效 ⑥ 重复 `NPPN_READY` 幂等 ⑦ `NPPN_SHUTDOWN` 干净回收 ⑧ DLL 可卸载。
+"假宿主" + 真实 `NppDock.dll`，共 **34 条断言 / 9 组**：① 6 导出函数齐全 ② `setInfo`+菜单表 ③ 注册面板（`uMask` 必须底部槽位）③b 应用发现 ③c 内容区提示 ④ 状态持久化（写出/读回/隐藏与显示两种）⑤ 显隐反复切换有效 ⑥ 重复 `NPPN_READY` 幂等 ⑦ `NPPN_SHUTDOWN` 干净回收 ⑧ DLL 可卸载。
 
 ### 10.2 工具自检
 
