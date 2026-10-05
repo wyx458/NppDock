@@ -17,15 +17,11 @@
 
 ---
 
-## 长什么样
+## 演示样例
 
 整个 Notepad++ + 底部面板（面板里开着三个应用：文件校验 / 网络测试 / 文件背包）：
 
 <img src="docs/images/overview.png" width="820" alt="Notepad++ 底部停靠面板">
-
-> 想重截一张：`python tools/shoot_readme.py` 会另起一个**干净的** Notepad++ 实例
-> （只打开仓库里的源码、跑完把你的配置原样还原）覆盖 `docs/images/overview.png`，
-> 并顺手做像素级体检 —— 面板是不是空的、活动标签的绿杠在不在，不达标直接报 FAIL。
 
 ---
 
